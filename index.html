@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <title>SoundBoardApp</title>
+</head>
+<body>
+    <div class="container">
+        <!-- 左側のコントロールエリア -->
+        <div class="controls">
+            <input type="file" id="audioFiles" multiple accept="audio/*">
+            <div class="volume-control">
+                <label for="globalVolume">全体音量: </label>
+                <input type="range" id="globalVolume" min="0" max="100" value="50">
+            </div>
+            <button id="playAll">再生</button>
+            <button id="stopAll">停止</button>
+        </div>
+
+        <!-- 右側のボタンエリア -->
+        <div class="soundboard" id="soundboard">
+            <!-- ボタンが動的に追加されます -->
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
+
