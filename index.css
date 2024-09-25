@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.controls {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.soundboard {
+    width: 65%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+button, input[type="range"] {
+    margin-bottom: 10px;
+}
+
+.sound-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sound-button label {
+    margin-bottom: 5px;
+}
