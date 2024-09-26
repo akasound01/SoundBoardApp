@@ -1,3 +1,12 @@
+document.getElementById('audioFiles').addEventListener('change', handleFileSelect);
+document.getElementById('stopAll').addEventListener('click', stopAllSounds);
+document.getElementById('globalVolume').addEventListener('input', adjustGlobalVolume);
+
+let audioElements = [];
+let gainNodes = [];
+let playPauseButtons = [];
+let audioContext = null;
+
 function handleFileSelect(event) {
     const files = Array.from(event.target.files);
     const soundboard = document.getElementById('soundboard');
@@ -71,5 +80,23 @@ function handleFileSelect(event) {
         soundButton.appendChild(volumeSlider);
         soundButton.appendChild(playPauseButton);
         soundboard.appendChild(soundButton);
+    });
+}
+
+
+// 全体停止ボタンが押されたとき、すべての音源を停止し、ボタンを「再生」にリセット
+function stopAllSounds() {
+    audioElements.forEach((audio, index) => {
+        audio.pause();
+        audio.currentTime = 0;
+        playPauseButtons[index].textContent = '再生';
+    });
+}
+
+// 全体音量調整
+function adjustGlobalVolume(event) {
+    const globalVolume = event.target.value / 100;
+    gainNodes.forEach(gainNode => {
+        gainNode.gain.value = globalVolume;
     });
 }
