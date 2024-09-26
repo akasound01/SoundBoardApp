@@ -1,7 +1,7 @@
 document.getElementById('audioFiles').addEventListener('change', handleFileSelect);
 document.getElementById('playAll').addEventListener('click', playAllSounds);
-//document.getElementById('stopAll').addEventListener('click', stopAllSounds);
-//*document.getElementById('globalVolume').addEventListener('input', adjustGlobalVolume);
+document.getElementById('stopAll').addEventListener('click', stopAllSounds);
+document.getElementById('globalVolume').addEventListener('input', adjustGlobalVolume);
 
 let audioElements = [];
 
@@ -12,10 +12,6 @@ function handleFileSelect(event) {
 
     Array.from(files).forEach((file, index) => {
         const audio = new Audio(URL.createObjectURL(file));
-        audio.addEventListener('canplay', () => {
-        // 音量スライダーのデフォルト値を反映
-        audio.volume = parseFloat(volumeSlider.value) / 100;
-    });
         audioElements.push(audio);
         
         const soundButton = document.createElement('div');
@@ -32,7 +28,7 @@ function handleFileSelect(event) {
         volumeSlider.max = '100';
         volumeSlider.value = '50';
         volumeSlider.addEventListener('input', (e) => {
-            audio.volume = parseFloat(e.target.value) / 100;
+            audio.volume = e.target.value / 100;
         });
 
         // 再生・停止ボタン
@@ -40,7 +36,6 @@ function handleFileSelect(event) {
         playPauseButton.textContent = '再生';
         playPauseButton.addEventListener('click', () => {
             if (audio.paused) {
-                audio.volume = parseFloat(volumeSlider.value) / 100;  // 再生時に音量設定
                 audio.play();
                 playPauseButton.textContent = '停止';
             } else {
@@ -57,16 +52,16 @@ function handleFileSelect(event) {
     });
 }
 
-/*function playAllSounds() {
+function playAllSounds() {
     audioElements.forEach(audio => audio.play());
-}*/
+}
 
-/*function stopAllSounds() {
+function stopAllSounds() {
     audioElements.forEach(audio => {
         audio.pause();
         audio.currentTime = 0;  // 再生位置をリセット
     });
-}*/
+}
 
 function adjustGlobalVolume(event) {
     const globalVolume = event.target.value / 100;
