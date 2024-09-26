@@ -1,7 +1,7 @@
 document.getElementById('audioFiles').addEventListener('change', handleFileSelect);
 document.getElementById('playAll').addEventListener('click', playAllSounds);
-document.getElementById('stopAll').addEventListener('click', stopAllSounds);
-document.getElementById('globalVolume').addEventListener('input', adjustGlobalVolume);
+//document.getElementById('stopAll').addEventListener('click', stopAllSounds);
+//document.getElementById('globalVolume').addEventListener('input', adjustGlobalVolume);
 
 let audioElements = [];
 
@@ -52,7 +52,7 @@ function handleFileSelect(event) {
     });
 }
 
-function playAllSounds() {
+/*function playAllSounds() {
     audioElements.forEach(audio => audio.play());
 }
 
@@ -61,7 +61,7 @@ function stopAllSounds() {
         audio.pause();
         audio.currentTime = 0;  // 再生位置をリセット
     });
-}
+}*/
 
 function adjustGlobalVolume(event) {
     const globalVolume = event.target.value / 100;
