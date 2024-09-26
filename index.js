@@ -57,9 +57,9 @@ function handleFileSelect(event) {
     });
 }
 
-function playAllSounds() {
+/*function playAllSounds() {
     audioElements.forEach(audio => audio.play());
-}
+}*/
 
 function stopAllSounds() {
     audioElements.forEach(audio => {
