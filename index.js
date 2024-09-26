@@ -61,12 +61,12 @@ function handleFileSelect(event) {
     audioElements.forEach(audio => audio.play());
 }*/
 
-function stopAllSounds() {
+/*function stopAllSounds() {
     audioElements.forEach(audio => {
         audio.pause();
         audio.currentTime = 0;  // 再生位置をリセット
     });
-}
+}*/
 
 function adjustGlobalVolume(event) {
     const globalVolume = event.target.value / 100;
