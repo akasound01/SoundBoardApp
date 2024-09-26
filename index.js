@@ -1,7 +1,7 @@
 document.getElementById('audioFiles').addEventListener('change', handleFileSelect);
 document.getElementById('playAll').addEventListener('click', playAllSounds);
-document.getElementById('stopAll').addEventListener('click', stopAllSounds);
-document.getElementById('globalVolume').addEventListener('input', adjustGlobalVolume);
+//document.getElementById('stopAll').addEventListener('click', stopAllSounds);
+//*document.getElementById('globalVolume').addEventListener('input', adjustGlobalVolume);
 
 let audioElements = [];
 
