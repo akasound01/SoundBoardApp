@@ -18,7 +18,9 @@ function handleFileSelect(event) {
     // AudioContextをユーザー操作内で作成
     audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
-    // 選択したファイルを順番に処理
+    // ファイルを名前でソート
+    files.sort((a, b) => a.name.localeCompare(b.name));
+
     files.forEach((file, index) => {
         const audio = new Audio(URL.createObjectURL(file));
         audio.preload = 'auto';
@@ -82,6 +84,7 @@ function handleFileSelect(event) {
         soundboard.appendChild(soundButton);
     });
 }
+
 
 
 // 全体停止ボタンが押されたとき、すべての音源を停止し、ボタンを「再生」にリセット
